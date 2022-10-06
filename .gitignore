@@ -15,3 +15,6 @@ node_modules
 
 # Next build cache
 .next
+
+# Environment variables
+.env
