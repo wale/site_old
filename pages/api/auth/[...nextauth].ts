@@ -3,6 +3,7 @@ import GithubProvider from "next-auth/providers/github";
 
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import prisma from "~/lib/prisma";
+import { SignInCallback } from "~/lib/next-auth/callbackParams";
 
 export default NextAuth({
   adapter: PrismaAdapter(prisma),
@@ -12,4 +13,13 @@ export default NextAuth({
         clientSecret: process.env.GH_CLIENT_SECRET
     })
   ],
+  pages: {
+    signIn: '/auth/signin',
+  },
+  callbacks: {
+    async session({session, token, user}: SignInCallback) {
+        session.user.role = user.role;
+        return session;
+    }
+  }
 })

@@ -1,4 +1,4 @@
-import { Container, LinkGroup } from "~/components/Containers";
+import { ButtonContainer, Container, LinkGroup } from "~/components/Containers";
 import { FoldedPicture } from "~/components/FoldedPicture";
 import { SignInComponent } from "~/components/SignInComps";
 
@@ -13,22 +13,27 @@ export default function SignIn({providers}) {
         <Container>
             <SignInComponent>
                 <FoldedPicture />
-                <h1 className="text-2xl font-bold">Login</h1>
+                <h1 className="text-4xl font-bold">Login</h1>
                 {status != "authenticated" ? (
                     <>
                     <h2 className="text-xl font-semibold">Providers</h2>
                     <LinkGroup>
-                        {Object.values(providers).map((provider: {id: string, name: string}) => (
-                            <LinkButton key={provider.name} 
-                                onclick={() => signIn(provider.id)} name={`Sign in with ${provider.name}`} />
-                        ))}
+                        <ButtonContainer>
+                            {Object.values(providers).map((provider: {id: string, name: string}) => (
+                                <LinkButton key={provider.name} 
+                                    onclick={() => signIn(provider.id)} name={`Sign in with ${provider.name}`} />
+                            ))}
+                        </ButtonContainer>
                     </LinkGroup>
                     </>
                 ) : (
                     <>
                         <h2 className="text-xl font-semibold">You are logged in.</h2>
                         <LinkGroup>
-                            <LinkButton href="/" name="Return Home"/>
+                            <ButtonContainer>
+                                <LinkButton href="/dash" name="Dashboard" />
+                                <LinkButton href="/" name="Return Home"/>
+                            </ButtonContainer>
                         </LinkGroup>
                     </>
                 )}

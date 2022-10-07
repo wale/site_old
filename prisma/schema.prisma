@@ -44,8 +44,10 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
+  role          Role      @default(USER)
   accounts      Account[]
   sessions      Session[]
+  posts         Post[]
 }
 
 model VerificationToken {
@@ -54,4 +56,18 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Post {
+  id           String   @id @default(cuid())
+  title        String
+  slug         String
+  description  String
+  content      String
+  authors      User[]
+}
+
+enum Role {
+  ADMIN
+  USER
 }

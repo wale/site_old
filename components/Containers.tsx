@@ -16,7 +16,7 @@ export const ButtonContainer = (props) => {
 
 export const LinkGroup = (props) => {
     return (
-        <div className="bg-inherit flex-col space-y-3">
+        <div className="bg-inherit flex-col space-y-2">
             {props.children}
         </div>
     )

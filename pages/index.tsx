@@ -10,16 +10,16 @@ import instagram from "@iconify-icons/simple-icons/instagram";
 
 import mail from "@iconify-icons/gg/mail";
 
-import { useSession, signIn, signOut } from "next-auth/react"
+import { useSession, getSession, signOut } from "next-auth/react"
 
 export default function Home() {
-    const { status } = useSession();
+    const { status, data: session } = useSession();
 
     return (
         <Container>
             <InfoComponent>
                 <FoldedPicture />
-                <h1 className="text-2xl font-bold">Duale Siad</h1>
+                <h1 className="text-4xl font-bold">Duale Siad</h1>
                 <h3 className="text-xl font-medium">Programmer, photographer, creative.</h3>
                 <LinkGroup>
                     <ButtonContainer>
