@@ -1,8 +1,8 @@
-import { RoledSession } from "./roledSession"
+import { RoledSession } from "./roledSession";
 
 export type SessionCallback = {
-    readonly data?: RoledSession
-    readonly status: Status
-}
+    readonly data?: RoledSession;
+    readonly status: Status;
+};
 
-export type Status = "authenticated" | "unauthenticated" | "loading"
+export type Status = "authenticated" | "unauthenticated" | "loading";

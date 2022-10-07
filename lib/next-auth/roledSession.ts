@@ -4,6 +4,6 @@ import { Session } from "next-auth";
 import { RoledUser } from "./roledUser";
 
 export interface RoledSession extends Session {
-    role?: Role
-    user?: RoledUser
+    role?: Role;
+    user?: RoledUser;
 }

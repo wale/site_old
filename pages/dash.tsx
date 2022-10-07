@@ -17,47 +17,55 @@ export default function Dash() {
                 <DashComponent>
                     <FoldedPicture />
                     <h1 className="text-4xl font-black">Permission denied.</h1>
-                    <h2 className="text-2xl font-medium">You are not logged in.</h2>
+                    <h2 className="text-2xl font-medium">
+                        You are not logged in.
+                    </h2>
                     <LinkGroup>
-                        <LinkButton href="/auth/signin" name="Sign In"/>
+                        <LinkButton href="/auth/signin" name="Sign In" />
                         <LinkButton href="/" name="Return Home" />
                     </LinkGroup>
                 </DashComponent>
             </Container>
-        )
+        );
     } else {
         // @ts-ignore
-        if(session.user.role != "ADMIN") {
+        if (session.user.role != "ADMIN") {
             return (
                 <Container>
                     <DashComponent>
                         <FoldedPicture />
-                        <h1 className="text-4xl font-black">Permission denied.</h1>
-                        <h2 className="text-2xl font-medium">You do not have administrator privileges.</h2>
+                        <h1 className="text-4xl font-black">
+                            Permission denied.
+                        </h1>
+                        <h2 className="text-2xl font-medium">
+                            You do not have administrator privileges.
+                        </h2>
                         <LinkGroup>
                             <LinkButton href="/" name="Return Home" />
                         </LinkGroup>
                     </DashComponent>
                 </Container>
-            )
+            );
         } else {
             return (
                 <Container>
                     <DashComponent>
                         <FoldedPicture />
                         <h1 className="text-4xl font-black">Welcome!</h1>
-                        <h2 className="text-2xl font-medium">You have admin privileges. This is a test.</h2>
+                        <h2 className="text-2xl font-medium">
+                            You have admin privileges. This is a test.
+                        </h2>
                         <LinkGroup>
                             <LinkButton href="/" name="Return Home" />
                         </LinkGroup>
                     </DashComponent>
                 </Container>
-            )
+            );
         }
     }
 }
 
 export async function getServerSideProps(ctx) {
-    const session = await getSession(ctx)
-    return ({props: {session}})
+    const session = await getSession(ctx);
+    return { props: { session } };
 }

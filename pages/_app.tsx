@@ -1,11 +1,11 @@
-import "~/styles/globals.css";  
+import "~/styles/globals.css";
 import "@fontsource/inter";
 import { SessionProvider } from "next-auth/react";
 
-export default function App({Component, pageProps}) {
+export default function App({ Component, pageProps }) {
     return (
         <SessionProvider session={pageProps.session}>
             <Component {...pageProps} />
         </SessionProvider>
-    )
+    );
 }

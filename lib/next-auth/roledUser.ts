@@ -1,4 +1,4 @@
-import { User } from "next-auth";   
+import { User } from "next-auth";
 import { Role } from "@prisma/client";
 
 export interface RoledUser extends User {
